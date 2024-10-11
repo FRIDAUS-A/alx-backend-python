@@ -12,4 +12,4 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
         Args:
             multiplier: number to square
     """
-    return lambda multiplier: float(multiplier) ** 2
+    return lambda value: value * multiplier
