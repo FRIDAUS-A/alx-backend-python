@@ -9,13 +9,15 @@ import time
 wait_n = __import__("1-concurrent_coroutines").wait_n
 
 
-async def measure_time(n: int, max_delay: int) -> float:
+def measure_time(n: int, max_delay: int) -> float:
     """
         Args:
             n: number of time to spawn
             max_delay: max amount of delay
+        Returns:
+            returns the average time per courotine
     """
     start = time.time()
-    aysncio.run(wait_n(n, max_delay))
+    asyncio.run(wait_n(n, max_delay))
     stop = time.time()
     return (stop - start) / n
