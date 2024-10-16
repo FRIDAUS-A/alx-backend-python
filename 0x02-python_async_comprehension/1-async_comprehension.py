@@ -4,13 +4,13 @@
     1 second, then yield a random number between 0 and 10.
     Use the random module.
 """
-from typing import List, Generator
+from typing import List
 import asyncio
 import random
 async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_comprehension() -> Generator[float, None, None]:
+async def async_comprehension() -> List[float]:
     """
         Args:
         Returns: returns a list of random numbers
