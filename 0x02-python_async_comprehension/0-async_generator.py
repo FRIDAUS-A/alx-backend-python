@@ -9,7 +9,7 @@ import asyncio
 import random
 
 
-async def async_generator() -> Generator:
+async def async_generator() -> Generator[float, None, None]:
     """
         Args:
         Returns: yield 10 random numbers
