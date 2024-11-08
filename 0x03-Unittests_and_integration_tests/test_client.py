@@ -3,6 +3,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from parameterized import parameterized
 from client import GithubOrgClient
+from typing import Dict
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -14,7 +15,7 @@ class TestGithubOrgClient(unittest.TestCase):
         ("abc", {'login': "abc"})
     ])
     @patch('client.get_json')
-    def test_org(self, org_name, test_payload, mock_get_json):
+    def test_org(self, org_name: str, test_payload: Dict, mock_get_json: MagicMock) -> None:
         """
             test the org object method
         """
