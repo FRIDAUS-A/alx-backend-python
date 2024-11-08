@@ -15,12 +15,11 @@ class TestGithubOrgClient(unittest.TestCase):
         ("abc", {'login': "abc"})
     ])
     @patch('client.get_json')
-    def test_org(self, org_name: str, test_payload: Dict, mock_get_json: MagicMock) -> None:
-        """
-            test the org object method
-        """
-        mock_get_json.return_value = MagicMock(return_value=test_payload)
-        obj = GithubOrgClient(org_name)
-        self.assertEqual(obj.org(), test_payload)
-        mock_get_json.assert_called_once_with(
-                      "https://api.github.com/orgs/{}".format(org_name))
+    def test_org(self, org: str, resp: Dict, mocked_fxn: MagicMock) -> None:
+        """Tests the `org` method."""
+        mocked_fxn.return_value = MagicMock(return_value=resp)
+        gh_org_client = GithubOrgClient(org)
+        self.assertEqual(gh_org_client.org(), resp)
+        mocked_fxn.assert_called_once_with(
+            "https://api.github.com/orgs/{}".format(org)
+        )
