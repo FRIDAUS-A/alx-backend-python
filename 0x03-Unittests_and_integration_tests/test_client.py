@@ -10,8 +10,8 @@ class TestGithubOrgClient(unittest.TestCase):
         tests the github client
     """
     @parameterized.expand([
-        ("google", {"payload": True}),
-        ("abc", {"payload": True})
+        ("google", {'login': "google"}),
+        ("abc", {'login': "abc"})
     ])
     @patch('client.get_json')
     def test_org(self, org_name, test_payload, mock_get_json):
